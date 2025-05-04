@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: pink;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.img-box {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: flex 0.5s ease;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.img-box h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 18px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.img-box:hover {
+    flex: 3;
+}
+
+.img-box:hover img {
+    transform: scale(1.1);
+}

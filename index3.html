@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ucapan</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: pink;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        #message {
+            line-height: 2;
+            margin: 20px 0;
+            font-size: 1em;
+            line-height: 1.4em;
+            justify-content: center;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #heartsContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            background-color: #f0fff0;
+            transform: rotate(-45deg);
+            animation: floatUp 7s infinite;
+            opacity: 0.7;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            background-color: #f0fff0;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -7.5px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 7.5px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(-45deg);
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        #backButton {
+            background-color: palevioletred;
+            color: black;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: auto;
+            
+            
+        }
+
+        #backButton:hover {
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message">
+        <br>aku ingin memberitahu tentang banyak hal, tentang betapa aku sangat mencintaimu dan takut kehilangan kmu,
+        <br>aku minta maaf klo selama ini aku sering merepotkan kamu, tapi semoga kamu tau, aku selalu mengupayakan
+        <br>yg terbaik untuk kamu, aku belajar membuatmu bahagia, aku ingin di sisi kmu lebih lama, jangan pernah bosen
+        <br>sama aku yaa, klo ada yg kurang kita tambahin sama sama yaa, dan klo ada yg salah kita cari benarny berdua,
+        <br>beriringan denganmu membuat aku paham bahwa hidup hanya tentang rasa syukur dan cukup, klo kita terus mencari
+        <br>yg sempurna kita akan kehilangan seseorang yg selalu ada, jadi izinkan aku mencintaimu berulang kali</br>
+        <br>
+        i love you moreee
+    </div>
+
+    <button id="backButton" onclick="window.history.back()"><a href="index.html">home</a></button>
+
+    <div id="heartsContainer"></div>
+
+    <script>
+        // Fungsi untuk membuat elemen partikel hati
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 5 + 's'; // Random duration between 5-7s
+            document.getElementById('heartsContainer').appendChild(heart);
+
+            // Hapus hati setelah animasi selesai
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Buat hati setiap 300ms
+        setInterval(createHeart, 300);
+        
+        
+        
+    </script>
+        <audio autoplay loop>
+            <source src="a1.mp3" type=" audio/mpeg" />
+          </audio>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const audio = document.querySelector("audio");
+              const userInteraction = () => {
+                audio.play();
+                document.removeEventListener("click", userInteraction);
+              };
+              document.addEventListener("click", userInteraction);
+            });
+          </script>
+</body>
+</html>
